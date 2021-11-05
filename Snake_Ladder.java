@@ -1,13 +1,15 @@
 public class Snake_Ladder
 {
 
+public static double Option = 0;
+
 public static double SnakeLadderRoll(double pos)
 {
 double DiceNum = (Math.floor(Math.random()*10)%6)+1;
 System.out.println("DiceNum" +DiceNum);
 //DiceRolls++;
 
-double Option = Math.floor(Math.random()*10)%3;
+Option = Math.floor(Math.random()*10)%3;
 System.out.println("Option" +Option);
 
 	if(Option == 0)            //NoPlay
@@ -30,9 +32,8 @@ System.out.println("Option" +Option);
 
 System.out.println("position: " +pos);
 
-return pos;
+return (pos);
 }
-
 
 
 
@@ -42,7 +43,7 @@ System.out.println("Snake and ladder game");
 double pos1 = 0;		//Position of Player 1
 double pos2 = 0;		//Position of Player 2
 
-double Option = 0;
+
 int DiceRolls=0;
 
 while( pos1<100 && pos2<100 )
