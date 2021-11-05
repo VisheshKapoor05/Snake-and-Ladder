@@ -7,31 +7,36 @@ System.out.println("Snake and ladder game");
 double pos = 0;
 
 int a=0;
-while(pos<=100)
+while(pos<100)
 {
 double DiceNum = (Math.floor(Math.random()*10)%6)+1;
-System.out.println("DiceNum" +DiceNum);
+//System.out.println("DiceNum" +DiceNum);
 
 double Option = Math.floor(Math.random()*10)%3;
 
 	if(Option == 0)            //NoPlay
-		pos = pos;
+		{
+			pos = pos;
+		}
 	else if(Option == 1)       //Ladder
-		pos = pos + DiceNum ;
+		{
+			pos = pos + DiceNum ;
+			if(pos>100)                 //Player stays still if final position exceeds 100
+				pos = pos - DiceNum ;
+		}
 	else                       //Snake
 		{
 			pos = pos - DiceNum ;
-			if(pos<0)
-			{
+			if(pos<0)                   //Player restarts from 0 if we get a negative position
 				pos=0;
-			}
 		}
 
-System.out.println("Option" +Option);
-System.out.println("position" +pos);
-System.out.println();
+//System.out.println("Option" +Option);
+//System.out.println("position" +pos);
+//System.out.println();
 
 }
+
 /*switch ((int) Option) {
 	case 0:
 		pos = pos; //NoPlay
@@ -41,6 +46,7 @@ System.out.println();
 		pos = pos - DiceNum ; //Snake
 	}
 */
+
 System.out.println(pos);
 
 }
