@@ -1,19 +1,14 @@
 public class Snake_Ladder
 {
 
-public static void main(String[] args)
-{
-System.out.println("Snake and ladder game");
-double pos = 0;
-
-int DiceRolls=0;
-while(pos<100)
+public static double SnakeLadderRoll(double pos)
 {
 double DiceNum = (Math.floor(Math.random()*10)%6)+1;
-//System.out.println("DiceNum" +DiceNum);
-DiceRolls++;
+System.out.println("DiceNum" +DiceNum);
+//DiceRolls++;
 
 double Option = Math.floor(Math.random()*10)%3;
+System.out.println("Option" +Option);
 
 	if(Option == 0)            //NoPlay
 		{
@@ -24,6 +19,7 @@ double Option = Math.floor(Math.random()*10)%3;
 			pos = pos + DiceNum ;
 			if(pos>100)                 //Player stays still if final position exceeds 100
 				pos = pos - DiceNum ;
+			SnakeLadderRoll(pos);
 		}
 	else                       //Snake
 		{
@@ -32,11 +28,44 @@ double Option = Math.floor(Math.random()*10)%3;
 				pos=0;
 		}
 
-//System.out.println("Option" +Option);
 System.out.println("position: " +pos);
-//System.out.println();
+
+return pos;
+}
+
+
+
+
+public static void main(String[] args)
+{
+System.out.println("Snake and ladder game");
+double pos1 = 0;		//Position of Player 1
+double pos2 = 0;		//Position of Player 2
+
+double Option = 0;
+int DiceRolls=0;
+
+while( pos1<100 && pos2<100 )
+{
+
+pos1=SnakeLadderRoll(pos1);
+if(Option==1)					       //Player plays again if gets a ladder
+	SnakeLadderRoll(pos1);
+
+pos2=SnakeLadderRoll(pos2);
+if(Option==1)
+	SnakeLadderRoll(pos2);
+
+System.out.println("position1: " +pos1);
+System.out.println("position2: " +pos2);
+System.out.println();
 
 }
+
+if(pos1==100)
+	System.out.println("Player1 won");
+else
+	System.out.println("Player2 won");
 
 /*switch ((int) Option) {
 	case 0:
@@ -48,8 +77,7 @@ System.out.println("position: " +pos);
 	}
 */
 
-System.out.println(pos);
-System.out.println("Number of times the dice was played:" +DiceRolls);
+//System.out.println("Number of times the dice was played:" +DiceRolls);
 
 }
 
