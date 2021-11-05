@@ -6,11 +6,12 @@ public static void main(String[] args)
 System.out.println("Snake and ladder game");
 double pos = 0;
 
-int a=0;
+int DiceRolls=0;
 while(pos<100)
 {
 double DiceNum = (Math.floor(Math.random()*10)%6)+1;
 //System.out.println("DiceNum" +DiceNum);
+DiceRolls++;
 
 double Option = Math.floor(Math.random()*10)%3;
 
@@ -32,7 +33,7 @@ double Option = Math.floor(Math.random()*10)%3;
 		}
 
 //System.out.println("Option" +Option);
-//System.out.println("position" +pos);
+System.out.println("position: " +pos);
 //System.out.println();
 
 }
@@ -48,6 +49,7 @@ double Option = Math.floor(Math.random()*10)%3;
 */
 
 System.out.println(pos);
+System.out.println("Number of times the dice was played:" +DiceRolls);
 
 }
 
